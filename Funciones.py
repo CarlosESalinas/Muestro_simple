@@ -17,16 +17,17 @@ class Estadisticas:
         muestra = datos.sample(n=n)
         return muestra
     
-    def media_sin_correcion(self, datos, columna : str, z: float, presicion: int):
+    def media_sin_correcion(self, datos, col_numerica, z: float, presicion: int):
         """
         Calcula la media de una muestra sin correcion
         Parametros:
             datos: list | datos de la muestra
+            col_numerica: list | columna numerica de la muestra
             z: float | valor de z
         Return: 
             n0 float | media sin correcion
         """
-        s = statistics.stdev(datos[columna])
+        s = statistics.stdev(col_numerica)
         n0 = (z**2 * s**2) / presicion**2
         return round(n0,2)
     
